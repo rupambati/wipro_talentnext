@@ -1,0 +1,45 @@
+package java_fundamentals;
+
+import java.util.Scanner;
+public class Question1 {
+    public static void main(String[] args) {
+        if (args.length != 2) {
+            System.out.println("Error: Please provide gender and age as command line arguments.");
+            System.out.println("Usage: java Question1 <Male/Female> <Age>");
+            return;
+        }
+
+        String gender = args[0];
+        int age = 0;
+
+        try {
+            age = Integer.parseInt(args[1]);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Age must be a valid integer.");
+            return;
+        }
+
+       
+        if (age < 1 || age > 100) {
+            System.out.println("Error: Age must be between 1 and 100.");
+            return;
+        }
+
+        // Determine interest rate
+        if (gender.equalsIgnoreCase("Female")) {
+            if (age >= 1 && age <= 58) {
+                System.out.println("Interest rate: 8.2%");
+            } else {
+                System.out.println("Interest rate: 9.2%");
+            }
+        } else if (gender.equalsIgnoreCase("Male")) {
+            if (age >= 1 && age <= 58) {
+                System.out.println("Interest rate: 8.4%");
+            } else {
+                System.out.println("Interest rate: 10.5%");
+            }
+        } else {
+            System.out.println("Error: Gender must be 'Male' or 'Female'.");
+        }
+    }
+}

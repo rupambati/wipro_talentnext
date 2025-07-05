@@ -1,0 +1,28 @@
+package java_fundamentals;
+
+public class Question18 {
+    public static void main(String[] args) {
+        
+        if (args.length == 0) {
+            System.out.println("Please enter an integer number");
+            return;
+        }
+
+        try {
+            int n = Integer.parseInt(args[0]);
+            int count = 1;
+            int row = 1;
+
+            while (row <= n) {
+                for (int i = 1; i <= row; i++) {
+                    System.out.print("* ");
+                    count++;
+                }
+                System.out.println(); 
+                row++;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Please enter an integer number");
+        }
+    }
+}
